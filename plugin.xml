@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cn.com.chaochuang.filepicker"
+        version="1.0.0">
+    <name>filepicker</name>
+    <description>文件选择</description>
+
+    <!-- JS 文件-->
+    <js-module name="Filepicker" src="www/Filepicker.js">
+        <clobbers target="window.plugins.ccFilepicker"/>
+    </js-module>
+
+    <!-- android 平台-->
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="Filepicker">
+                <param name="android-package" value="cn.com.chaochuang.Filepicker"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!-- 需要写入AndroidManifest.xml的配置-->
+            <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        </config-file>
+
+        <config-file target="res/values/strings.xml" parent="/*">
+            <string name="filepicker_title">选择文件</string>
+            <string name="filepicker_app_name">FilePicker</string>
+            <string name="choose_button_label">Select</string>
+            <string name="cancel_button_label">Cancel</string>
+            <string name="default_dir">/sdcard</string>
+            <string name="label_parent_directory">Parent Directory</string>
+        </config-file>
+
+        <!-- 将文件移到指定目录-->
+        <source-file src="src/android/Filepicker.java" target-dir="src/cn/com/chaochuang"/>
+        <source-file src="src/android/controller/adapters/FileListAdapter.java" target-dir="src/com/cookie/filepicker/controller/adapters"/>
+        <source-file src="src/android/controller/DialogSelectionListener.java" target-dir="src/com/cookie/filepicker/controller"/>
+        <source-file src="src/android/controller/NotifyItemChecked.java" target-dir="src/com/cookie/filepicker/controller"/>
+        <source-file src="src/android/model/DialogConfigs.java" target-dir="src/com/cookie/filepicker/model"/>
+        <source-file src="src/android/model/DialogProperties.java" target-dir="src/com/cookie/filepicker/model"/>
+        <source-file src="src/android/model/FileListItem.java" target-dir="src/com/cookie/filepicker/model"/>
+        <source-file src="src/android/model/MarkedItemList.java" target-dir="src/com/cookie/filepicker/model"/>
+        <source-file src="src/android/utils/ExtensionFilter.java" target-dir="src/com/cookie/filepicker/utils"/>
+        <source-file src="src/android/utils/Utility.java" target-dir="src/com/cookie/filepicker/utils"/>
+        <source-file src="src/android/view/FilePickerDialog.java" target-dir="src/com/cookie/filepicker/view"/>
+        <source-file src="src/android/view/FilePickerPreference.java" target-dir="src/com/cookie/filepicker/view"/>
+
+        <source-file src="src/android/res/values-zh-rCN/strings.xml" target-dir="res/values-zh-rCN"/>
+        <source-file src="src/android/res/anim/marked_item_animation.xml" target-dir="res/anim"/>
+        <source-file src="src/android/res/anim/unmarked_item_animation.xml" target-dir="res/anim"/>
+        <source-file src="src/android/res/layout/dialog_file_list.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/dialog_file_list_item.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/dialog_footer.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/dialog_header.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/layout/dialog_main.xml" target-dir="res/layout"/>
+        <source-file src="src/android/res/mipmap-hdpi/ic_directory_parent.png" target-dir="res/mipmap-hdpi"/>
+        <source-file src="src/android/res/mipmap-hdpi/ic_type_file.png" target-dir="res/mipmap-hdpi"/>
+        <source-file src="src/android/res/mipmap-hdpi/ic_type_folder.png" target-dir="res/mipmap-hdpi"/>
+        <source-file src="src/android/res/mipmap-mdpi/ic_directory_parent.png" target-dir="res/mipmap-mdpi"/>
+        <source-file src="src/android/res/mipmap-mdpi/ic_type_file.png" target-dir="res/mipmap-mdpi"/>
+        <source-file src="src/android/res/mipmap-mdpi/ic_type_folder.png" target-dir="res/mipmap-mdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/ic_directory_parent.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/ic_type_file.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/ic_type_folder.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xxhdpi/ic_directory_parent.png" target-dir="res/mipmap-xxhdpi"/>
+        <source-file src="src/android/res/mipmap-xxhdpi/ic_type_file.png" target-dir="res/mipmap-xxhdpi"/>
+        <source-file src="src/android/res/mipmap-xxhdpi/ic_type_folder.png" target-dir="res/mipmap-xxhdpi"/>
+        <source-file src="src/android/res/values/attrs.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values-w820dp/dimens.xml" target-dir="res/values-w820dp"/>
+
+    </platform>
+
+</plugin>
