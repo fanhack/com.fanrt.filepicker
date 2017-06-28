@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="cn.com.chaochuang.filepicker"
+        id="cn.fanrt.filepicker"
         version="1.0.0">
     <name>filepicker</name>
     <description>文件选择</description>
